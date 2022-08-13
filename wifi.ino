@@ -7,7 +7,7 @@
 
 #define UDP_PORT 10086
 #define PINSET Pinset(3,2,0)
-#define SIGNAl 4
+#define SIGNAl 16 // D0
 
 using namespace admux;
 
