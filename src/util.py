@@ -1,9 +1,9 @@
 import json
 import network
 
-def load_config() -> dict:
+def load_config(data = 'data.json') -> dict:
     # load the config json
-    data = open('data.json', 'r')
+    data = open(data, 'r')
     data_to_json = json.load(data)
     
     return data_to_json
@@ -25,4 +25,9 @@ def wifi_client(ssid: str, passw: str):
         return sta_if
     else:
         return False
+    
+def wifi_server():
+    ap = network.WLAN(network.AP_IF)
+    ap.active(True)
+    ap.config(essid="eSDeck", password="1234567890")
     

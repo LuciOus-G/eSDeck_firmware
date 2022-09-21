@@ -1,5 +1,6 @@
 from machine import I2C, Pin
 import ustruct
+import uasyncio
 
 class Mux:
     def __init__(self, channel_id: int, short_func, long_func=False):
@@ -49,7 +50,8 @@ class Mux:
                 if b_data.get("type", None) == 'page':
                     print("masuk typr page")
                     if oled_func:
-                        oled_func(update=True, page=b_data.get("topage", None))
+                        uasyncio.create_task(oled_func(update=True, page=b_data.get("topage", None)))
+                        
                 else:
                     self.short_func()
             elif self.long_mili >= self.long_time:
@@ -57,7 +59,7 @@ class Mux:
                     if b_data.get("type", None) == 'page':
                         print("masuk typr page")
                         if oled_func:
-                            oled_func(update=True, page=b_data.get("topage", None))
+                            uasyncio.create_task(oled_func(update=True, page=b_data.get("topage", None)))
                     else:
                         self.long_func()
             self.long_mili = 0
