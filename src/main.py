@@ -102,7 +102,37 @@ class pageConstruct(Displays, buttonInit):
             self.oled.blit(fbuf, 0, -10)
             self._center_text(page)
             self.oled.show()
-    
+            
+            self.enable_channel(2)
+            
+            new_data = bytearray(self.current_data["b1"]["image"])
+            fbuf = framebuf.FrameBuffer(new_data, 128, 64, framebuf.MONO_HLSB)
+
+            self.oled.fill(0)
+            self.oled.blit(fbuf, 0, -10)
+            self._center_text(page)
+            self.oled.show()
+            
+            self.enable_channel(3)
+            
+            new_data = bytearray(self.current_data["b1"]["image"])
+            fbuf = framebuf.FrameBuffer(new_data, 128, 64, framebuf.MONO_HLSB)
+
+            self.oled.fill(0)
+            self.oled.blit(fbuf, 0, -10)
+            self._center_text(page)
+            self.oled.show()
+            
+            self.enable_channel(4)
+            
+            new_data = bytearray(self.current_data["b1"]["image"])
+            fbuf = framebuf.FrameBuffer(new_data, 128, 64, framebuf.MONO_HLSB)
+
+            self.oled.fill(0)
+            self.oled.blit(fbuf, 0, -10)
+            self._center_text(page)
+            self.oled.show()
+            
     def _display_oled(self, channel=None, bmp_data=None, text=None):
         
         if self.oled:           

@@ -1,7 +1,7 @@
 import os
 
 metadata = {
-    "port": "COM12",
+    "port": "COM7",
     "baud": "115200"
 }
 
